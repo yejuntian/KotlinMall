@@ -1,5 +1,9 @@
-apply plugin: 'com.android.application'
-apply plugin:'kotlin-android'
+if (isUserModule.toBoolean()) {
+    apply plugin: 'com.android.library'
+} else {
+    apply plugin: 'com.android.application'
+}
+apply plugin: 'kotlin-android'
 apply plugin: 'kotlin-android-extensions'
 android {
     compileSdkVersion 28
@@ -23,6 +27,20 @@ android {
         }
     }
 
+    sourceSets {
+        main {
+            if (isUserModule.toBoolean()) {
+                manifest.srcFile('src/main/release/AndroidManifest.xml')
+                //release模式下排除debug文件夹中所有的java文件
+                java {
+                    exclude('debug/**')
+                }
+
+            } else {
+                manifest.srcFile('src/main/debug/AndroidManifest.xml')
+            }
+        }
+    }
 }
 
 dependencies {
