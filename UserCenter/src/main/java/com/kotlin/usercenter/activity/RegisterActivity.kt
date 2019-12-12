@@ -1,10 +1,12 @@
 package com.kotlin.usercenter.activity
 
 import android.os.Bundle
+import android.util.Log
 import android.view.View
 import com.kotlin.baselibrary.ui.activity.BaseMvpActivity
 import com.kotlin.usercenter.R
 import com.kotlin.usercenter.presenter.RegisterPresenter
+import io.reactivex.Observable
 import kotlinx.android.synthetic.main.activity_register.*
 
 /**
@@ -21,7 +23,10 @@ class RegisterActivity : BaseMvpActivity<RegisterPresenter>() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_register)
         mRegisterBtn.setOnClickListener(View.OnClickListener {
+            val just = Observable.just("1", "2", 3)
+            Log.e("test", "just = $just")
 
         })
+
     }
 }
