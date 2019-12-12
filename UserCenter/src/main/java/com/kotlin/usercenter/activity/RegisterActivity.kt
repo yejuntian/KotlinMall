@@ -1,10 +1,10 @@
 package com.kotlin.usercenter.activity
 
 import android.os.Bundle
-import android.support.v7.app.AppCompatActivity
 import android.view.View
-import android.widget.Toast
+import com.kotlin.baselibrary.ui.activity.BaseMvpActivity
 import com.kotlin.usercenter.R
+import com.kotlin.usercenter.presenter.RegisterPresenter
 import kotlinx.android.synthetic.main.activity_register.*
 
 /**
@@ -16,12 +16,12 @@ import kotlinx.android.synthetic.main.activity_register.*
  * @since  [历史 创建日期:2019-12-11]
  */
 
-class RegisterActivity : AppCompatActivity() {
+class RegisterActivity : BaseMvpActivity<RegisterPresenter>() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_register)
         mRegisterBtn.setOnClickListener(View.OnClickListener {
-            Toast.makeText(this, "注册", Toast.LENGTH_SHORT).show();
+
         })
     }
 }
