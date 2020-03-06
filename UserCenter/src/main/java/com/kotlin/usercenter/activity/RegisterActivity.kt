@@ -6,8 +6,10 @@ import android.view.View
 import com.kotlin.baselibrary.ui.activity.BaseMvpActivity
 import com.kotlin.usercenter.R
 import com.kotlin.usercenter.presenter.RegisterPresenter
+import com.kotlin.usercenter.presenter.view.RegisterView
 import io.reactivex.Observable
 import kotlinx.android.synthetic.main.activity_register.*
+import kotlin.math.log
 
 /**
  * <注册界面>
@@ -18,15 +20,21 @@ import kotlinx.android.synthetic.main.activity_register.*
  * @since  [历史 创建日期:2019-12-11]
  */
 
-class RegisterActivity : BaseMvpActivity<RegisterPresenter>() {
+class RegisterActivity : BaseMvpActivity<RegisterPresenter>(),RegisterView {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_register)
+        mPresenter = RegisterPresenter()
+        mPresenter.mView = this
         mRegisterBtn.setOnClickListener(View.OnClickListener {
-            val just = Observable.just("1", "2", 3)
-            Log.e("test", "just = $just")
+            mPresenter.register(mMobileEt.text.toString()
+                    , mVerifyCodeEt.text.toString()
+                    , mPwdEt.text.toString())
 
         })
 
+    }
+
+    override fun onRegisterResult(result: Boolean) {
     }
 }

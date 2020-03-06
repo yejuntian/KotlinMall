@@ -11,4 +11,5 @@ import com.kotlin.baselibrary.presenter.view.BaseView
  * @since  [历史 创建日期:2019-12-12]
  */
 interface RegisterView : BaseView {
+    fun onRegisterResult(result: Boolean)
 }
