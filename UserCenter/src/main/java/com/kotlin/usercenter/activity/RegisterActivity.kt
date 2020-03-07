@@ -5,6 +5,7 @@ import android.view.View
 import android.widget.Toast
 import com.kotlin.baselibrary.common.AppManager
 import com.kotlin.baselibrary.ext.OnClick
+import com.kotlin.baselibrary.ext.enable
 import com.kotlin.baselibrary.ui.activity.BaseMvpActivity
 import com.kotlin.usercenter.R
 import com.kotlin.usercenter.presenter.RegisterPresenter
@@ -35,6 +36,8 @@ class RegisterActivity : BaseMvpActivity<RegisterPresenter>(), RegisterView {
             }
         })
 
+        //使用拓展的Btn表达式
+        mRegisterBtn.enable(mVerifyCodeEt, { isBtnEnable() })
     }
 
     override fun onBackPressed() {
@@ -50,5 +53,15 @@ class RegisterActivity : BaseMvpActivity<RegisterPresenter>(), RegisterView {
 
     override fun onRegisterResult(result: String) {
 
+    }
+
+    /*
+       判断按钮是否可用
+    */
+    private fun isBtnEnable():Boolean{
+        return mMobileEt.text.isNullOrEmpty().not() &&
+                mVerifyCodeEt.text.isNullOrEmpty().not() &&
+                mPwdEt.text.isNullOrEmpty().not()&&
+                mPwdConfirmEt.text.isNullOrEmpty().not()
     }
 }
