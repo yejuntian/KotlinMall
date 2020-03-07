@@ -57,6 +57,8 @@ dependencies {
     compile "com.ashokvarma.android:bottom-navigation-bar:${bottom_navigation_bar}"
     //Banner
     compile 'com.youth.banner:banner:1.4.10'  //最新版本
+    //画廊
+//    compile 'com.github.crosswall:Android-Coverflow:release-v1.0.4'
 }
 repositories {
     mavenCentral()

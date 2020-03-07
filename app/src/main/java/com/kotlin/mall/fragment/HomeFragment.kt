@@ -49,4 +49,6 @@ class HomeFragment : Fragment() {
         mHomeBanner.start()
 
     }
+
+
 }
