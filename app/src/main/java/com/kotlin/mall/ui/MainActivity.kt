@@ -5,6 +5,7 @@ import android.support.v4.app.Fragment
 import android.support.v7.app.AppCompatActivity
 import com.ashokvarma.bottomnavigation.BottomNavigationBar
 import com.kotlin.mall.R
+import com.kotlin.mall.fragment.HomeFragment
 import kotlinx.android.synthetic.main.activity_main.*
 import java.util.*
 
@@ -14,7 +15,7 @@ class MainActivity : AppCompatActivity() {
     //Fragment 栈管理
     private val mStack = Stack<Fragment>()
     //主界面Fragment
-//    private val mHomeFragment by lazy { HomeFragment() }
+    private val mHomeFragment by lazy { HomeFragment() }
     //商品分类Fragment
 //    private val mCategoryFragment by lazy { CategoryFragment() }
     //购物车Fragment
@@ -40,14 +41,14 @@ class MainActivity : AppCompatActivity() {
      */
     private fun initFragment() {
         val manager = supportFragmentManager.beginTransaction()
-//        manager.add(R.id.mContaier,mHomeFragment)
+        manager.add(R.id.mContaier,mHomeFragment)
 //        manager.add(R.id.mContaier,mCategoryFragment)
 //        manager.add(R.id.mContaier,mCartFragment)
 //        manager.add(R.id.mContaier,mMsgFragment)
 //        manager.add(R.id.mContaier,mMeFragment)
         manager.commit()
 
-//        mStack.add(mHomeFragment)
+        mStack.add(mHomeFragment)
 //        mStack.add(mCategoryFragment)
 //        mStack.add(mCartFragment)
 //        mStack.add(mMsgFragment)
