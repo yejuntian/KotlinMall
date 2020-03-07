@@ -12,7 +12,7 @@ import com.kotlin.baselibrary.presenter.view.BaseView
  * @since  [历史 创建日期:2019-12-12]
  */
 open class BaseMvpActivity<T : BasePresenter<*>> : BaseActivity(), BaseView {
-    protected lateinit var mPresenter: T;
+    protected lateinit var mPresenter: T
     override fun showLoading() {
     }
 
@@ -22,4 +22,8 @@ open class BaseMvpActivity<T : BasePresenter<*>> : BaseActivity(), BaseView {
     override fun onError() {
     }
 
+    override fun onDestroy() {
+        super.onDestroy()
+        mPresenter?.dettachView()
+    }
 }

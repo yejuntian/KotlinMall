@@ -26,8 +26,7 @@ class RegisterActivity : BaseMvpActivity<RegisterPresenter>(), RegisterView {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_register)
-        mPresenter = RegisterPresenter()
-        mPresenter.mView = this
+        mPresenter = RegisterPresenter(this, this)
         mRegisterBtn.OnClick(object : View.OnClickListener {
             override fun onClick(v: View?) {
                 mPresenter.register(mMobileEt.text.toString()

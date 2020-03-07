@@ -1,5 +1,6 @@
 package com.kotlin.usercenter.presenter
 
+import android.content.Context
 import com.kotlin.baselibrary.ext.execute
 import com.kotlin.baselibrary.presenter.BasePresenter
 import com.kotlin.baselibrary.rx.BaseSubscriber
@@ -15,7 +16,8 @@ import com.kotlin.usercenter.service.impl.UserServiceImpl
  * @see  [参考资料]
  * @since  [历史 创建日期:2019-12-12]
  */
-class RegisterPresenter : BasePresenter<RegisterView>() {
+class RegisterPresenter(context: Context, view: RegisterView) : BasePresenter<RegisterView>(context, view) {
+//    constructor(context: Context, view: RegisterView?) : super(context, view) {}
     /**
      * 业务逻辑
      */
@@ -24,7 +26,7 @@ class RegisterPresenter : BasePresenter<RegisterView>() {
     fun register(mobile: String, verifyCode: String, pwd: String) {
         userService.register(mobile, verifyCode, pwd).execute(object : BaseSubscriber<String>() {
             override fun onNext(t: String) {
-                mView.onRegisterResult(t)
+                getView()?.onRegisterResult(t)
             }
         })
 

@@ -23,4 +23,5 @@
         <!--<item name="android:layout_alignParentRight">true</item>-->
     <!--</style>-->
 
+    <style name="MatchWrap"></style>
 </resources>

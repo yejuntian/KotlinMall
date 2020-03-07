@@ -38,7 +38,7 @@ fun View.OnClick(clickListener: View.OnClickListener) {
 }
 
 //使用lamada表达式拓展函数
-fun View.OnClickListener(method: () -> Int) {
+fun View.OnClickListener(method: () -> Unit) {
     this.setOnClickListener { it ->
         method()
     }
