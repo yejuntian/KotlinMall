@@ -4,8 +4,8 @@ import android.os.Bundle
 import android.view.View
 import android.widget.Toast
 import com.kotlin.baselibrary.common.AppManager
-import com.kotlin.baselibrary.ext.OnClick
 import com.kotlin.baselibrary.ext.enable
+import com.kotlin.baselibrary.ext.onClick
 import com.kotlin.baselibrary.ui.activity.BaseMvpActivity
 import com.kotlin.usercenter.R
 import com.kotlin.usercenter.presenter.RegisterPresenter
@@ -21,14 +21,27 @@ import kotlinx.android.synthetic.main.activity_register.*
  * @since  [历史 创建日期:2019-12-11]
  */
 
-class RegisterActivity : BaseMvpActivity<RegisterPresenter>(), RegisterView {
+class RegisterActivity : BaseMvpActivity<RegisterPresenter>(), RegisterView, View.OnClickListener {
     private var pressTime: Long = System.currentTimeMillis()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_register)
         mPresenter = RegisterPresenter(this, this)
-        mRegisterBtn.OnClick(object : View.OnClickListener {
+        initView()
+    }
+
+    fun initView() {
+        //使用拓展的Btn表达式
+        mRegisterBtn.enable(mMobileEt, { isBtnEnable() })
+        mRegisterBtn.enable(mVerifyCodeEt, { isBtnEnable() })
+        mRegisterBtn.enable(mPwdEt, { isBtnEnable() })
+        mRegisterBtn.enable(mPwdConfirmEt, { isBtnEnable() })
+
+        mVerifyCodeBtn.onClick(this)
+        mRegisterBtn.onClick(this)
+
+        mRegisterBtn.onClick(object : View.OnClickListener {
             override fun onClick(v: View?) {
                 mPresenter.register(mMobileEt.text.toString()
                         , mVerifyCodeEt.text.toString()
@@ -36,8 +49,6 @@ class RegisterActivity : BaseMvpActivity<RegisterPresenter>(), RegisterView {
             }
         })
 
-        //使用拓展的Btn表达式
-        mRegisterBtn.enable(mVerifyCodeEt, { isBtnEnable() })
     }
 
     override fun onBackPressed() {
@@ -55,13 +66,24 @@ class RegisterActivity : BaseMvpActivity<RegisterPresenter>(), RegisterView {
 
     }
 
+    override fun onClick(v: View?) {
+        when (v?.id) {
+            R.id.mVerifyCodeBtn -> {
+            }
+
+            R.id.mRegisterBtn -> {
+                mPresenter.register(mMobileEt.text.toString(), mPwdEt.text.toString(), mVerifyCodeEt.text.toString())
+            }
+        }
+    }
+
     /*
        判断按钮是否可用
     */
-    private fun isBtnEnable():Boolean{
+    private fun isBtnEnable(): Boolean {
         return mMobileEt.text.isNullOrEmpty().not() &&
                 mVerifyCodeEt.text.isNullOrEmpty().not() &&
-                mPwdEt.text.isNullOrEmpty().not()&&
+                mPwdEt.text.isNullOrEmpty().not() &&
                 mPwdConfirmEt.text.isNullOrEmpty().not()
     }
 }

@@ -36,16 +36,23 @@ fun <T> Observable<BaseResp<T>>.convertBoolean(): Observable<Boolean> {
     return this.flatMap(BaseFunc())
 }
 
-fun View.OnClick(clickListener: View.OnClickListener) {
-    this.setOnClickListener(clickListener)
+//
+/**
+ * 使用lamada表达式拓展函数
+ *有返回数值的用小括号()，无返回值的用大括号{}
+ */
+fun View.OnClickListener(method: () -> Unit) {
+    setOnClickListener { method() }
 }
 
-//使用lamada表达式拓展函数
-fun View.OnClickListener(method: () -> Unit) {
-    this.setOnClickListener { it ->
-        method()
-    }
+/*
+    扩展点击事件
+ */
+fun View.onClick(listener: View.OnClickListener): View {
+    setOnClickListener(listener)
+    return this
 }
+
 
 /*
   *扩展Button可用性
