@@ -1,5 +1,6 @@
 package com.kotlin.baselibrary.data.net
 
+import com.kotlin.baselibrary.common.BaseConstance
 import okhttp3.Interceptor
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor

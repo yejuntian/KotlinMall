@@ -1,4 +1,4 @@
-package com.kotlin.baselibrary.data.net
+package com.kotlin.baselibrary.common
 
 /**
  * <类说明 必填>
