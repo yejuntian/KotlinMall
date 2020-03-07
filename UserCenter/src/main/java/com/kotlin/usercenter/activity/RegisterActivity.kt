@@ -3,6 +3,7 @@ package com.kotlin.usercenter.activity
 import android.os.Bundle
 import android.util.Log
 import android.view.View
+import com.kotlin.baselibrary.ext.OnClick
 import com.kotlin.baselibrary.ui.activity.BaseMvpActivity
 import com.kotlin.usercenter.R
 import com.kotlin.usercenter.presenter.RegisterPresenter
@@ -26,11 +27,12 @@ class RegisterActivity : BaseMvpActivity<RegisterPresenter>(),RegisterView {
         setContentView(R.layout.activity_register)
         mPresenter = RegisterPresenter()
         mPresenter.mView = this
-        mRegisterBtn.setOnClickListener(View.OnClickListener {
-            mPresenter.register(mMobileEt.text.toString()
-                    , mVerifyCodeEt.text.toString()
-                    , mPwdEt.text.toString())
-
+        mRegisterBtn.OnClick(object :View.OnClickListener{
+            override fun onClick(v: View?) {
+                mPresenter.register(mMobileEt.text.toString()
+                        , mVerifyCodeEt.text.toString()
+                        , mPwdEt.text.toString())
+            }
         })
 
     }

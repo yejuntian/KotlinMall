@@ -1,4 +1,4 @@
-package com.kotlin.baselibrary.ext
+package com.kotlin.baselibrary.rx
 
 /**
  * <类说明 必填>

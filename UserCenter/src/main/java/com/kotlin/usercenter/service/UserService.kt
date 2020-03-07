@@ -11,5 +11,5 @@ import io.reactivex.Observable
  * @since  [历史 创建日期:2020/3/6]
  */
 interface UserService {
-    fun register(mobile: String, pwd: String, verifyCode: String): Observable<Boolean>
+    fun register(mobile: String, pwd: String, verifyCode: String): Observable<String>
 }

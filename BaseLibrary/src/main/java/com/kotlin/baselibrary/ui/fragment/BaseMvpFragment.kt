@@ -1,5 +1,6 @@
-package com.kotlin.baselibrary.ui.activity
+package com.kotlin.baselibrary.ui.fragment
 
+import android.support.v7.app.AppCompatActivity
 import com.kotlin.baselibrary.presenter.BasePresenter
 import com.kotlin.baselibrary.presenter.view.BaseView
 
@@ -11,7 +12,7 @@ import com.kotlin.baselibrary.presenter.view.BaseView
  * @see  [参考资料]
  * @since  [历史 创建日期:2019-12-12]
  */
-open class BaseMvpActivity<T : BasePresenter<*>> : BaseActivity(), BaseView {
+open class BaseMvpFragment<T : BasePresenter<*>> : BaseFragment(), BaseView {
     protected lateinit var mPresenter: T;
     override fun showLoading() {
     }
