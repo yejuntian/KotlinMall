@@ -7,7 +7,7 @@ import com.ashokvarma.bottomnavigation.BottomNavigationBar
 import com.kotlin.goods.ui.fragment.CategoryFragment
 import com.kotlin.mall.R
 import com.kotlin.mall.fragment.HomeFragment
-import com.kotlin.mall.fragment.MeFragment
+import com.kotlin.usercenter.fragment.MeFragment
 import kotlinx.android.synthetic.main.activity_main.*
 import java.util.*
 
@@ -34,8 +34,6 @@ class MainActivity : AppCompatActivity() {
         initFragment()
         initBottomNav()
         changeFragment(0)
-//        initObserve()
-//        loadCartSize()
     }
 
     /*

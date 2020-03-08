@@ -1,35 +1,29 @@
 package com.kotlin.provider.router
 
 /*
-    模块路由 路径定义
+    模块路由 一级路径每个模块不能相同  二级路径可以相同
  */
-object RouterPath{
+object RouterPath {
     //用户模块
-    class UserCenter{
+    class UserCenter {
         companion object {
             const val PATH_LOGIN = "/userCenter/login"
+            const val PATH_USER_ID = "/userCenter/userID"
         }
     }
 
     //订单模块
-    class OrderCenter{
+    class OrderCenter {
         companion object {
             const val PATH_ORDER_CONFIRM = "/orderCenter/confirm"
         }
     }
 
-    //支付模块
-    class PaySDK{
+    //用户ID模块
+    class UserID {
         companion object {
-            const val PATH_PAY = "/paySDK/pay"
+            const val PATH_USER_ID = "/paySDK/user_ID"
         }
     }
 
-    //消息模块
-    class MessageCenter{
-        companion object {
-            const val PATH_MESSAGE_PUSH = "/messageCenter/push"
-            const val PATH_MESSAGE_ORDER = "/messageCenter/order"
-        }
-    }
 }

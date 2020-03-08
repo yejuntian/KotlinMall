@@ -7,10 +7,26 @@
         style="@style/MatchWrap"
         app:titleText="商品列表" />
 
-    <Button
+    <TextView
+        android:id="@+id/tv_page"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
         android:text="我是ARouter跳转页面" />
+
+    <EditText
+        android:id="@+id/edit_cardID"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_marginTop="5dp"
+        android:hint="模块化接口调用点击下面的按钮" />
+
+    <Button
+        android:id="@+id/btn_cardId"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="5dp"
+        android:text="通过ARouter跨接口调用" />
 
 </LinearLayout>
