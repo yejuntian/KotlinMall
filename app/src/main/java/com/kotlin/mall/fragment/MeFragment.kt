@@ -32,8 +32,8 @@ class MeFragment : Fragment() {
     private fun initListener() {
         btn_jump.onClick(View.OnClickListener {
             ARouter.getInstance().build("/goods/cart_activity")
-//                    .withString("name", "MeFragment")
-//                    .withInt("age", 1)
+                    .withString("name", "MeFragment")
+                    .withInt("age", 1)
                     .navigation()
         })
     }
