@@ -1,6 +1,13 @@
 apply plugin: 'com.android.library'
 apply plugin: 'kotlin-android'
 apply plugin: 'kotlin-android-extensions'
+apply plugin: 'kotlin-kapt'
+
+kapt {
+    arguments {
+        arg("AROUTER_MODULE_NAME", project.getName())
+    }
+}
 
 android {
     compileSdkVersion 28
@@ -37,4 +44,6 @@ dependencies {
     //ARouter
 //    compile "com.alibaba:arouter-compiler:$arouter_compiler_version"
     compile 'ren.qinc.numberbutton:numberbutton:0.0.1'
+    //ARouter
+    kapt "com.alibaba:arouter-compiler:${arouter_compiler_version}"
 }

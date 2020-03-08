@@ -59,6 +59,8 @@ dependencies {
     compile 'com.youth.banner:banner:1.4.10'  //最新版本
     //画廊
 //    compile 'com.github.crosswall:Android-Coverflow:release-v1.0.4'
+    //ARouter
+    compile "com.alibaba:arouter-api:$arouter_api_version"
 }
 repositories {
     mavenCentral()
