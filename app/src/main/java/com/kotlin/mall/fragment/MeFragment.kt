@@ -8,6 +8,7 @@ import android.view.ViewGroup
 import com.alibaba.android.arouter.launcher.ARouter
 import com.kotlin.baselibrary.ext.onClick
 import com.kotlin.mall.R
+import com.kotlin.provider.router.RouterPath
 import kotlinx.android.synthetic.main.fragment_me_layout.*
 
 /**
@@ -31,7 +32,7 @@ class MeFragment : Fragment() {
 
     private fun initListener() {
         btn_jump.onClick(View.OnClickListener {
-            ARouter.getInstance().build("/goods/cart_activity")
+            ARouter.getInstance().build(RouterPath.OrderCenter.PATH_ORDER_CONFIRM)
                     .withString("name", "MeFragment")
                     .withInt("age", 1)
                     .navigation()
