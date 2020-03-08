@@ -35,6 +35,6 @@ dependencies {
 
     compile project(':Provider')
     //ARouter
-//    kapt "com.alibaba:arouter-compiler:$arouter_compiler_version"
-//    compile 'ren.qinc.numberbutton:numberbutton:0.0.1'
+//    compile "com.alibaba:arouter-compiler:$arouter_compiler_version"
+    compile 'ren.qinc.numberbutton:numberbutton:0.0.1'
 }

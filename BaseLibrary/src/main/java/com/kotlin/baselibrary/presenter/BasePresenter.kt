@@ -25,8 +25,8 @@ open class BasePresenter<T : BaseView> : MvpPresenter<T> {
         weakView = WeakReference<T>(view)
     }
 
-    open fun getContext(): Context? {
-        return weakContext?.get()
+    open fun getContext(): Context {
+        return weakContext?.get()!!
     }
 
     open fun getView(): T? {
